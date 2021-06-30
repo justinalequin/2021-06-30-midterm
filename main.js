@@ -47,39 +47,129 @@ function countBs(array) {
 }
 
 function lastIndexOfPunctuation(string) {
-let output = -1;
-for (const punc of string){
-    if (
-        punc === '!' ||
-        punc === '?' ||
-        punc === '.' ||
-        punc ==='...'
-    ){ output = string.lastIndexOf(punc)}
+    let output = -1;
+    for (const punc of string) {
+        if (
+            punc === '!' ||
+            punc === '?' ||
+            punc === '.' ||
+            punc === '...'
+        ) { output = string.lastIndexOf(punc) }
 
-}
-return output    
+    }
+    return output
 }
 
 function divisbles(array1, array2) {
     let output = [];
-  if (array1.length === 0){return []}
-    for (let i = 0; i < array1.length; i++){
-        console.log("array1 = "+array1[0])
-        console.log("array2 = "+array2[0])
-        console.log("array is divisible if equals 0: " + (array1[i] % array2[i]))
-        if (array1[i] % array2[i] === 0){
-            return [true]
-        } else {return [false]}
+    if (array1.length === 0) { return [] }
+    for (let i = 0; i < array1.length; i++) {
+        //console.log("array1 = "+array1[i])
+        // console.log("array2 = "+array2[i])
+        //console.log("array is divisible if equals 0: " + (array1[i] % array2[i]))
+        if (array1[i] % array2[i] === 0) {
+            output.push(true)
+        } else { output.push(false) }
     }
-    
- // return output
- } 
+    //console.log("output = " + output)  
+    return output
 
-function getLetters() { }
+}
 
-function getCenturies() { }
+function getLetters(array, indexPoint) {
+    let output = '';
+    //console.log("******** START ********************")
+    //console.log("array = "+array)
+    if (array.length === 0) {
+        //console.log('');
+        return ''
+    }
+    for (const string of array) {
+        if (string.length - 1 < indexPoint) {
+            // console.log('-')
+            output += '-'
+        }
+        if (string.length > indexPoint) {
+            // console.log("idnexPoint = " +indexPoint)
+            //console.log("string @ indexPoint = "+ string[indexPoint])
+            output += (string[indexPoint])
+        }
 
-function gridSum() { }
+
+        //console.log("output ="+output)  
+    }
+    //console.log("******** END ********************")
+    return output
+
+
+}
+
+function getCenturies(array) {
+    let output = []
+    //console.log("--------Array----------" + array)
+    for (let i = 0; i < array.length; i++) {
+      
+        let year = array[i]
+        let stringYear = year.toString()
+
+        if (stringYear.length <= 2) {
+            output.push('1st')
+            //i++
+        }
+        //console.log(stringYear[0])
+        let firstStringYear = (Number(stringYear[0]) + 1);
+        let firstStringYear2 = firstStringYear.toString()
+       // console.log(firstStringYear)
+
+        if (firstStringYear === 2 && stringYear.length === 3) {
+            output.push("2nd");
+          //  i++;
+
+        }
+        if (firstStringYear === 3 && stringYear.length === 3) {
+            output.push("3rd");
+          // i++;
+        }
+        if (stringYear.length === 3 && firstStringYear >=4) {
+            output.push(firstStringYear2 + "th");
+            //i++;
+        }
+        let dec = (stringYear[0] + stringYear[1])
+        let decade = Number(dec) + 1;
+        let decade2 = decade.toString()
+        if (decade === 21) {
+            output.push(decade2 + "st");
+            //i++;
+        }
+        if (stringYear.length === 4 && decade !== 21) {
+            let decadeFinal = decade2 + "th"
+            output.push(decadeFinal);
+           // i++;
+
+        }
+
+
+
+
+            //console.log(output)
+            //console.log(year)
+            //console.log(typeof year)
+            // console.log(stringYear)
+            //console.log(typeof stringYear)
+            //console.log(stringYear[0] + stringYear[1])
+            // console.log(decade)
+            // console.log(decadeFinal)
+            // console.log("output " +output)
+            //console.log("")
+            //console.log("")
+            // console.log("3333333333333333333333333333333333333333333333333333333333333333333")
+        
+       // console.log(output)
+    } return output
+
+}
+
+//function gridSum() { }
 
 
 
